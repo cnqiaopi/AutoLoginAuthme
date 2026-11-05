@@ -1,0 +1,20 @@
+AutoLoginAuthme 3.0.0
+API: org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT
+Command: .\build.ps1 -Offline
+Result: BUILD SUCCESS
+Recorded: 2026-11-05 15:12:51 +08:00
+
+Mistral.compat.PackagedPluginIT: tests=6, failures=0, errors=0, skipped=0
+Mistral.auth.LoginCoordinatorTest: tests=11, failures=0, errors=0, skipped=0
+Mistral.cache.SessionCacheTest: tests=4, failures=0, errors=0, skipped=0
+Mistral.compat.BrandDecoderTest: tests=8, failures=0, errors=0, skipped=0
+Mistral.config.PluginSettingsTest: tests=4, failures=0, errors=0, skipped=0
+Mistral.loader.LibraryDownloaderTest: tests=8, failures=0, errors=0, skipped=0
+Mistral.security.CredentialCommandsTest: tests=5, failures=0, errors=0, skipped=0
+Mistral.security.SessionPolicyTest: tests=12, failures=0, errors=0, skipped=0
+Mistral.storage.JdbcSessionRepositoryTest: tests=4, failures=0, errors=0, skipped=0
+Mistral.storage.SessionStoreTest: tests=4, failures=0, errors=0, skipped=0
+Mistral.util.IpAddressesTest: tests=6, failures=0, errors=0, skipped=0
+
+Total: 72 passed
+JAR SHA-256: 8DCED404CD8F9BDDE1770367FBEF174023558AC6784AB944AA8E069B8436F1DC

@@ -1,0 +1,10 @@
+AutoLoginAuthme 3.0.0
+
+将本目录中的 AutoLoginAuthme-3.0.0.jar 放入服务端 plugins/。
+将 AutoLoginAuthme/ 文件夹合并到 plugins/AutoLoginAuthme/，保留已有配置与数据。
+完整目录中的 libs 含 5 个校验固定版本的运行库，可以离线启动。
+只复制插件 JAR 时，首次启动会自动创建 plugins/AutoLoginAuthme/libs 并下载缺失依赖。
+
+服务端仍需安装兼容自身版本的 AuthMe。
+数据库配置在 plugins/AutoLoginAuthme/config.yml。
+支持范围、已验证项目和改动说明见源码项目 README.md 与 docs/。

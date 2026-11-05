@@ -1,0 +1,43 @@
+# 兼容原 2.0 的主要配置键；数据库表仍为 login_sessions。
+prefix: '&7[&aAutoLoginAuthme&7] '
+# 分钟。0 表示关闭时长限制；跨自然日仍失效。
+max_time: 60
+useon_op: false
+# 最早检查时间（tick），未收到品牌时等待至 brand_wait_ticks。
+lagging_enabled: 20
+brand_wait_ticks: 100
+# 只控制提示，环境不匹配时始终撤销凭证。
+useaddress_alert: true
+success_login: '&a身份验证通过，已自动登录！'
+address_change: '&c环境已变更或客户端信息缺失，请手动登录。'
+time_out: '&7自动登录凭证已过期，请重新认证。'
+message_type: message
+# 按服务端本地时区计算自然日；可填写 Asia/Shanghai 等 ZoneId。
+timezone: system
+database:
+  host: localhost
+  port: 3306
+  database: minecraft
+  # 填写实际可用的 MySQL 账号和密码；此插件不会自动读取 AuthMe 的连接配置。
+  username: root
+  password: ''
+  # 可选：自定义 JDBC URL；留空使用上面的连接参数。
+  jdbc-url: ''
+  # PREFERRED / REQUIRED / VERIFY_CA / VERIFY_IDENTITY / DISABLED
+  ssl-mode: PREFERRED
+  pool:
+    maximum-pool-size: 10
+    minimum-idle: 2
+    connection-timeout: 5000
+    max-lifetime: 1800000
+performance:
+  enable_cache: true
+  cache_max_size: 1000
+  cache_expire_minutes: 30
+  # 有限队列防止数据库离线时无限积压。
+  database_queue_size: 1024
+monitoring:
+  enable_memory_monitor: true
+  monitor_interval: 300
+  auto_clean_threshold: 100
+debug: false

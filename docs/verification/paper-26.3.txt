@@ -1,0 +1,20 @@
+AutoLoginAuthme 3.0.0
+API: io.papermc.paper:paper-api:26.3.build.242-stable
+Command: .\mvnw.cmd -o -B -ntp -Ppaper-26.3 clean verify
+Result: BUILD SUCCESS
+Recorded: 2026-11-05 15:12:42 +08:00
+
+Mistral.compat.PackagedPluginIT: tests=6, failures=0, errors=0, skipped=0
+Mistral.auth.LoginCoordinatorTest: tests=11, failures=0, errors=0, skipped=0
+Mistral.cache.SessionCacheTest: tests=4, failures=0, errors=0, skipped=0
+Mistral.compat.BrandDecoderTest: tests=8, failures=0, errors=0, skipped=0
+Mistral.config.PluginSettingsTest: tests=4, failures=0, errors=0, skipped=0
+Mistral.loader.LibraryDownloaderTest: tests=8, failures=0, errors=0, skipped=0
+Mistral.security.CredentialCommandsTest: tests=5, failures=0, errors=0, skipped=0
+Mistral.security.SessionPolicyTest: tests=12, failures=0, errors=0, skipped=0
+Mistral.storage.JdbcSessionRepositoryTest: tests=4, failures=0, errors=0, skipped=0
+Mistral.storage.SessionStoreTest: tests=4, failures=0, errors=0, skipped=0
+Mistral.util.IpAddressesTest: tests=6, failures=0, errors=0, skipped=0
+
+Total: 72 passed
+JAR SHA-256: A7A6F0C4E3C481FB696F0262AD8ED88917662CD363F111422CE0B7E2F504F1C2

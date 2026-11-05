@@ -1,0 +1,9 @@
+/target/
+/tools/
+/build-tools/*
+!/build-tools/JdbcIsolationProbe.java
+/libs/
+/AutoLoginAuthme-*.jar
+/AutoLoginAuthme-*.zip
+/.idea/
+*.iml

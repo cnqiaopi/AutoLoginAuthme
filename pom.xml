@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Mistral</groupId>
+  <artifactId>AutoLoginAuthme</artifactId>
+  <version>3.0.0</version>
+  <name>AutoLoginAuthme</name>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>8</maven.compiler.release>
+    <bukkit.group>org.spigotmc</bukkit.group>
+    <bukkit.artifact>spigot-api</bukkit.artifact>
+    <bukkit.version>1.8.8-R0.1-SNAPSHOT</bukkit.version>
+  </properties>
+  <repositories>
+    <repository><id>central</id><url>https://repo.maven.apache.org/maven2</url><snapshots><enabled>false</enabled></snapshots></repository>
+    <repository><id>spigot-snapshots</id><url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url></repository>
+    <repository><id>codemc-releases</id><url>https://repo.codemc.io/repository/maven-releases/</url></repository>
+    <repository><id>papermc</id><url>https://repo.papermc.io/repository/maven-public/</url></repository>
+  </repositories>
+  <dependencies>
+    <dependency><groupId>${bukkit.group}</groupId><artifactId>${bukkit.artifact}</artifactId><version>${bukkit.version}</version><scope>provided</scope><exclusions><exclusion><groupId>net.md-5</groupId><artifactId>bungeecord-chat</artifactId></exclusion></exclusions></dependency>
+    <dependency><groupId>net.md-5</groupId><artifactId>bungeecord-chat</artifactId><version>1.16-R0.4</version><scope>provided</scope></dependency>
+    <dependency><groupId>fr.xephi</groupId><artifactId>authme</artifactId><version>5.6.0</version><scope>provided</scope><exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions></dependency>
+    <dependency><groupId>com.zaxxer</groupId><artifactId>HikariCP</artifactId><version>4.0.3</version></dependency>
+    <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>1.7.36</version></dependency>
+    <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-jdk14</artifactId><version>1.7.36</version></dependency>
+    <dependency><groupId>com.mysql</groupId><artifactId>mysql-connector-j</artifactId><version>8.4.0</version></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>5.12.2</version><scope>test</scope></dependency>
+    <dependency><groupId>org.ow2.asm</groupId><artifactId>asm</artifactId><version>9.8</version><scope>test</scope></dependency>
+    <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><version>2.2.224</version><scope>test</scope></dependency>
+  </dependencies>
+  <build>
+    <finalName>AutoLoginAuthme-${project.version}</finalName>
+    <resources><resource><directory>src/main/resources</directory><filtering>true</filtering></resource></resources>
+    <plugins>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.14.1</version></plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.4</version></plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-failsafe-plugin</artifactId><version>3.5.4</version><executions><execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution></executions></plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>3.4.1</version><configuration><forceCreation>true</forceCreation></configuration></plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId><version>3.7.0</version><executions>
+        <execution><id>distribution-libraries</id><phase>package</phase><goals><goal>copy-dependencies</goal></goals><configuration><includeScope>runtime</includeScope><outputDirectory>${project.build.directory}/distribution/AutoLoginAuthme/libs</outputDirectory></configuration></execution>
+        <execution><id>workspace-libraries</id><phase>package</phase><goals><goal>copy-dependencies</goal></goals><configuration><includeScope>runtime</includeScope><outputDirectory>${project.basedir}/libs</outputDirectory></configuration></execution>
+      </executions></plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version><executions><execution><id>distribution</id><phase>package</phase><goals><goal>run</goal></goals><configuration><target>
+        <copy file="${project.build.directory}/${project.build.finalName}.jar" todir="${project.build.directory}/distribution"/>
+        <copy file="${project.basedir}/docs/INSTALL.txt" todir="${project.build.directory}/distribution"/>
+        <zip destfile="${project.build.directory}/${project.build.finalName}-distribution.zip" basedir="${project.build.directory}/distribution"/>
+      </target></configuration></execution></executions></plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile><id>paper-26.3</id><properties><bukkit.group>io.papermc.paper</bukkit.group><bukkit.artifact>paper-api</bukkit.artifact><bukkit.version>26.3.build.242-stable</bukkit.version></properties></profile>
+  </profiles>
+</project>

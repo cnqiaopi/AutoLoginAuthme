@@ -1,0 +1,15 @@
+name: AutoLoginAuthme
+version: '${project.version}'
+main: Mistral.AutoLoginAuthme
+description: AuthMe
+depend: [AuthMe]
+commands:
+  autologin:
+    description: 自动登录插件管理
+    aliases: [al]
+    usage: /autologin <reload|status|lookup|remove|cleanup|debug>
+    permission: autologin.admin
+permissions:
+  autologin.admin:
+    description: 允许管理 AutoLoginAuthme
+    default: op
