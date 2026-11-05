@@ -1,6 +1,6 @@
 # AutoLoginAuthme 3.0.0
 
-由原插件业务代码反编译、审查并重新整理的源码工程。插件名为 `AutoLoginAuthme`，根包为 `Mistral`。外置依赖方案参考 MistralLobby，使用固定库清单、SHA-256 校验、自动下载和离线部署；为保留 1.8.x 兼容性，加载器采用 Java 8 可用的独立 URLClassLoader。
+插件名为 `AutoLoginAuthme`，根包为 `Mistral`。外置依赖使用固定库清单、SHA-256 校验、自动下载和离线部署；为保留 1.8.x 兼容性，加载器采用 Java 8 可用的独立 URLClassLoader。
 
 GitHub 仓库的 Releases 提供主插件 JAR 和包含完整 libs 的离线部署 ZIP。源码通过下方构建命令生成相同结构的产物。
 
